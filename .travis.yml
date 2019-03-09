@@ -1,3 +1,13 @@
 language: ruby
 rvm:
- - 2.5.3
+- 2.5.3
+script:
+- bundle exec rails db:migrate
+- bundle exec rake
+deploy:
+  provider: heroku
+  api_key: 4717f467-4008-47f9-9ded-a4f9da90a6ac
+  app: pantchol
+  on:
+    repo: PantchoL/LPA2
+  run: "rails db:migrate"
